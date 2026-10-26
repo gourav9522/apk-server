@@ -44,8 +44,10 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 
-    // --- SELF-PING MECHANISM (Har 3 minute mein khud ko ping karega) ---
-    const SELF_URL = process.env.RENDER_EXTERNAL_URL ? `${process.env.RENDER_EXTERNAL_URL}/cpa-postback` : null;
+    // --- SELF-PING MECHANISM (Har 3 minute mein khud ko ping karega taaki server soye na) ---
+    const SELF_URL = process.env.RENDER_EXTERNAL_URL 
+        ? `${process.env.RENDER_EXTERNAL_URL}/cpa-postback` 
+        : "https://apk-earner-backend.onrender.com/cpa-postback";
 
     if (SELF_URL) {
         setInterval(() => {
